@@ -304,19 +304,19 @@ class HBKLinePainter extends CustomPainter {
         maxValue = m["ma30"];
       }
 
-      if (minValue > m["low"]) {
+      if (minValue > m["low"] && m["low"] > 0) {
         minValue = m["low"];
       }
-      if (minValue > m["ma5"]) {
+      if (minValue > m["ma5"] && m["ma5"] > 0) {
         minValue = m["ma5"];
       }
-      if (minValue > m["ma10"]) {
+      if (minValue > m["ma10"] && m["ma10"] > 0) {
         minValue = m["ma10"];
       }
-      if (minValue > m["ma20"]) {
+      if (minValue > m["ma20"] && m["ma20"] > 0) {
         minValue = m["ma20"];
       }
-      if (minValue > m["ma30"]) {
+      if (minValue > m["ma30"] && m["ma30"] > 0) {
         minValue = m["ma30"];
       }
     }
