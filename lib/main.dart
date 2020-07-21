@@ -50,8 +50,6 @@ class _TestPageState extends State<TestPage> {
         children: <Widget>[
           HBMinuteLineChart(datas: datas),
           HBKLineChart(
-            // width: 200,
-            // height: 100,
             datas: klineDatas,
           )
         ],

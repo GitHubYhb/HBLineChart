@@ -60,9 +60,9 @@ class HBKLineVolPainter extends CustomPainter {
     String endDate = datas[beginIndex + count - 1]["date"];
 
     if (showDate) {
-      newSize = Size(size.width, size.height - 20);
+      newSize = Size(size.width, size.height - 40);
       //画日期
-      drawDate(canvas, size, beginDate, endDate);
+      drawDate(canvas, newSize, beginDate, endDate);
     }
     if (showBorder)
       //画边框
@@ -427,9 +427,9 @@ class HBKLineVolPainter extends CustomPainter {
     TextPainter tp2 =
         TextPainter(text: span2, textDirection: TextDirection.ltr);
     tp.layout();
-    tp.paint(canvas, Offset(2, size.height - 20));
+    tp.paint(canvas, Offset(2, size.height));
     tp2.layout();
-    tp2.paint(canvas, Offset(size.width - tp2.width, size.height - 20));
+    tp2.paint(canvas, Offset(size.width - tp2.width, size.height));
   }
 
   int getIndex(double x, Size size, List data) {
