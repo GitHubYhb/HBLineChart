@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'HBLineChart Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        // visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: TestPage(),
     );

@@ -12,10 +12,10 @@ class HBDataUtil {
   }
 
   static calcMA(List dataList, [bool isLast = false]) {
-    double ma5 = 0;
-    double ma10 = 0;
-    double ma20 = 0;
-    double ma30 = 0;
+    double ma5 = 0.0;
+    double ma10 = 0.0;
+    double ma20 = 0.0;
+    double ma30 = 0.0;
 
     int i = 0;
     if (isLast && dataList.length > 1) {
@@ -41,7 +41,7 @@ class HBDataUtil {
         ma5 -= dataList[i - 5]["close"];
         entity["ma5"] = ma5 / 5;
       } else {
-        entity["ma5"] = 0;
+        entity["ma5"] = 0.0;
       }
       if (i == 9) {
         entity["ma10"] = ma10 / 10;
@@ -49,7 +49,7 @@ class HBDataUtil {
         ma10 -= dataList[i - 10]["close"];
         entity["ma10"] = ma10 / 10;
       } else {
-        entity["ma10"] = 0;
+        entity["ma10"] = 0.0;
       }
       if (i == 19) {
         entity["ma20"] = ma20 / 20;
@@ -57,7 +57,7 @@ class HBDataUtil {
         ma20 -= dataList[i - 20]["close"];
         entity["ma20"] = ma20 / 20;
       } else {
-        entity["ma20"] = 0;
+        entity["ma20"] = 0.0;
       }
       if (i == 29) {
         entity["ma30"] = ma30 / 30;
@@ -65,7 +65,7 @@ class HBDataUtil {
         ma30 -= dataList[i - 30]["close"];
         entity["ma30"] = ma30 / 30;
       } else {
-        entity["ma30"] = 0;
+        entity["ma30"] = 0.0;
       }
 //      if (i == 59) {
 //        entity.MA60Price = ma60 / 60;
@@ -73,7 +73,7 @@ class HBDataUtil {
 //        ma60 -= dataList[i - 60]["close"];
 //        entity.MA60Price = ma60 / 60;
 //      } else {
-//        entity.MA60Price = 0;
+//        entity.MA60Price = 0.0;
 //      }
     }
   }
@@ -86,12 +86,12 @@ class HBDataUtil {
     for (; i < dataList.length; i++) {
       Map entity = dataList[i];
       if (i < 19) {
-        entity["mb"] = 0;
-        entity["up"] = 0;
-        entity["dn"] = 0;
+        entity["mb"] = 0.0;
+        entity["up"] = 0.0;
+        entity["dn"] = 0.0;
       } else {
         int n = 20;
-        double md = 0;
+        double md = 0.0;
         for (int j = i - n + 1; j <= i; j++) {
           double c = dataList[j]["close"];
           double m = entity["ma20"];
@@ -108,11 +108,11 @@ class HBDataUtil {
   }
 
   static void calcMACD(List dataList, [bool isLast = false]) {
-    double ema12 = 0;
-    double ema26 = 0;
-    double dif = 0;
-    double dea = 0;
-    double macd = 0;
+    double ema12 = 0.0;
+    double ema26 = 0.0;
+    double dif = 0.0;
+    double dea = 0.0;
+    double macd = 0.0;
 
     int i = 0;
     if (isLast && dataList.length > 1) {
@@ -152,8 +152,8 @@ class HBDataUtil {
   }
 
   static void calcVolumeMA(List dataList, [bool isLast = false]) {
-    double volumeMa5 = 0;
-    double volumeMa10 = 0;
+    double volumeMa5 = 0.0;
+    double volumeMa10 = 0.0;
 
     int i = 0;
     if (isLast && dataList.length > 1) {
@@ -175,7 +175,7 @@ class HBDataUtil {
         volumeMa5 -= dataList[i - 5]["vol"];
         entry["ma5Volume"] = volumeMa5 / 5;
       } else {
-        entry["ma5Volume"] = 0;
+        entry["ma5Volume"] = 0.0;
       }
 
       if (i == 9) {
@@ -184,15 +184,15 @@ class HBDataUtil {
         volumeMa10 -= dataList[i - 10]["vol"];
         entry["ma10Volume"] = volumeMa10 / 10;
       } else {
-        entry["ma10Volume"] = 0;
+        entry["ma10Volume"] = 0.0;
       }
     }
   }
 
   static void calcRSI(List dataList, [bool isLast = false]) {
     double rsi;
-    double rsiABSEma = 0;
-    double rsiMaxEma = 0;
+    double rsiABSEma = 0.0;
+    double rsiMaxEma = 0.0;
 
     int i = 0;
     if (isLast && dataList.length > 1) {
@@ -208,8 +208,8 @@ class HBDataUtil {
       final double closePrice = entity["close"];
       if (i == 0) {
         rsi = 0;
-        rsiABSEma = 0;
-        rsiMaxEma = 0;
+        rsiABSEma = 0.0;
+        rsiMaxEma = 0.0;
       } else {
         double Rmax = max(0, closePrice - dataList[i - 1]["close"]);
         double RAbs = (closePrice - dataList[i - 1]["close"]).abs();
@@ -227,8 +227,8 @@ class HBDataUtil {
   }
 
   static void calcKDJ(List dataList, [bool isLast = false]) {
-    double k = 0;
-    double d = 0;
+    double k = 0.0;
+    double d = 0.0;
 
     int i = 0;
     if (isLast && dataList.length > 1) {
@@ -253,7 +253,7 @@ class HBDataUtil {
       }
       double rsv = 100 * (closePrice - min14) / (max14 - min14);
       if (rsv.isNaN) {
-        rsv = 0;
+        rsv = 0.0;
       }
       if (i == 0) {
         k = 50;
@@ -263,13 +263,13 @@ class HBDataUtil {
         d = (k + 2 * d) / 3;
       }
       if (i < 13) {
-        entity["k"] = 0;
-        entity["d"] = 0;
-        entity["j"] = 0;
+        entity["k"] = 0.0;
+        entity["d"] = 0.0;
+        entity["j"] = 0.0;
       } else if (i == 13 || i == 14) {
         entity["k"] = k;
-        entity["d"] = 0;
-        entity["j"] = 0;
+        entity["d"] = 0.0;
+        entity["j"] = 0.0;
       } else {
         entity["k"] = k;
         entity["d"] = d;
@@ -297,10 +297,10 @@ class HBDataUtil {
         min14 = min(min14, dataList[index]["low"]);
       }
       if (i < 13) {
-        entity["r"] = 0;
+        entity["r"] = 0.0;
       } else {
-        if ((max14 - min14) == 0) {
-          entity["r"] = 0;
+        if ((max14 - min14) == 0.0) {
+          entity["r"] = 0.0;
         } else {
           entity["r"] = 100 * (max14 - dataList[i]["close"]) / (max14 - min14);
         }
