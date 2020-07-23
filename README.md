@@ -24,10 +24,10 @@
 
 
 # HOW TO USE
-###demo 地址
+### demo 地址
 https://github.com/GitHubYhb/HBLineChart
 
-###demo
+### demo
 ```
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -158,7 +158,7 @@ class _TestPageState extends State<TestPage> {
 ```
 
 ## 数据
-####分时线
+#### 分时线
 
 ```
 [
@@ -175,7 +175,7 @@ class _TestPageState extends State<TestPage> {
 ]
 ```
  ---
-##***重要提示：***
+## ***重要提示：***
 分时线需要提前在`/lib/hb_chart_config.dart`中设置好整体长度`lineChartCount`，否则可能会出现显示错误的问题。
 ![image.png](https://upload-images.jianshu.io/upload_images/2395731-347337b7737deb69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ---
@@ -256,3 +256,4 @@ double bottomFontSize = 10.0;
 ```
 
 
+ 
